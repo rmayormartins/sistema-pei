@@ -1,0 +1,14 @@
+name = "pei-worker"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Provedor LLM padrão (groq | openrouter | cerebras | gemini)
+# Sobrescreva via dashboard ou: npx wrangler secret put PROVIDER
+[vars]
+PROVIDER = "groq"
+
+# Secrets (configurar via wrangler):
+#   npx wrangler secret put GROQ_API_KEY       (para Groq)
+#   npx wrangler secret put OPENROUTER_API_KEY (para OpenRouter)
+#   npx wrangler secret put CEREBRAS_API_KEY   (para Cerebras)
+#   npx wrangler secret put GEMINI_API_KEY     (para Gemini)

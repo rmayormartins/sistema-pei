@@ -1,0 +1,29 @@
+{
+  "_comment": "Exemplo do JSON que o Worker retorna ao frontend. Esse formato é processado por renderPEI() em app.js.",
+  "identificacao": {
+    "discente": "Estudante exemplo",
+    "escola": "EMEF Exemplo",
+    "disciplina": "Língua Portuguesa",
+    "quantidade_aulas": "bloco de 3 aulas",
+    "data_inicio": null,
+    "data_conclusao": null,
+    "tipo_deficiencia": "Transtorno do Espectro Autista (TEA)",
+    "docente": "Profa. exemplo"
+  },
+  "adaptacoes_curriculares": {
+    "acessibilidade_conteudo": "Acessibilidade do conteúdo de gêneros textuais (parlendas, trava-línguas e quadrinhas). O estudante apresenta dificuldades na leitura fluente e na escrita espontânea, atuando como copista de frases. A meta de aprendizagem é desenvolver a fluência leitora e a construção autônoma de pequenas frases, utilizando como suporte a estrutura rítmica e repetitiva dos gêneros. Este PEI foi desenvolvido em diálogo com a professora do AEE e será aplicado pela professora regente em um bloco de três aulas.",
+    "objetivos_especificos": "Desenvolver a fluência leitora e a escrita autônoma por meio da exploração de parlendas, trava-línguas e quadrinhas, utilizando recursos acessíveis que favoreçam a participação ativa do estudante e o reconhecimento de padrões rítmicos e sonoros (BNCC EF05LP09).",
+    "metodologia": "Foram construídos cartões com versos incompletos para que o estudante complete as palavras, promovendo o reconhecimento visual e auditivo dos padrões. Foi implementado suporte multimodal — versos impressos em fonte ampliada acompanhados de gravação em áudio — e utilizados versos recortados para reconstrução textual, permitindo a organização sequencial e lógica do texto. As atividades foram organizadas em pequenos blocos de 10 a 15 minutos com pausas previsíveis, respeitando a sensibilidade auditiva do estudante. O hiperfoco em temas de interesse (dinossauros, trens) foi aproveitado como ponte motivacional, integrando elementos preferidos do estudante aos versos trabalhados. A professora do AEE auxilia na confecção prévia dos materiais e na preparação do estudante durante os atendimentos.",
+    "parecer_avaliativo": {
+      "antes": "O estudante apresentava dificuldades significativas na fluência leitora e na escrita espontânea, limitando-se à cópia de frases sem demonstrar compreensão do conteúdo. Tinha dificuldades em identificar padrões sonoros, como rimas e repetições, comuns no gênero textual parlenda. Reconhece padrões visuais com mais facilidade do que padrões apresentados apenas pela escuta, e demonstra cansaço em tarefas longas de escrita.",
+      "depois": null
+    }
+  },
+  "fundamentacao": [
+    "Parecer CNE/CP nº 50/2023",
+    "BNCC: EF05LP09 (reconhecer padrões textuais em gêneros líricos populares)",
+    "Princípios da Declaração de Salamanca (UNESCO, 1994)",
+    "Lei Brasileira de Inclusão (Lei nº 13.146/2015)"
+  ],
+  "observacoes_pedagogicas": "Recomenda-se ambiente com baixo estímulo sonoro durante a leitura coletiva, considerando a hipersensibilidade auditiva do estudante. Sugere-se avaliar, ao longo do bloco, a expansão gradual do tempo de tarefa conforme a tolerância demonstrada."
+}

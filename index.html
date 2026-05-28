@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema inteligente para geração assistida de Plano Educacional Individualizado (PEI) com base no Parecer CNE/CP 50/2023.">
+  <title>Sistema PEI · Plano Educacional Individualizado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Início">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="14" r="4" fill="currentColor"/>
+          <circle cx="11" cy="26" r="3" fill="currentColor"/>
+          <circle cx="29" cy="26" r="3" fill="currentColor"/>
+          <line x1="20" y1="14" x2="11" y2="26" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="14" x2="29" y2="26" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="11" y1="26" x2="29" y2="26" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Sistema PEI</span>
+          <span class="brand-sub">Plano Educacional Individualizado</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#ajuda">Ajuda</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <p class="eyebrow">Educação inclusiva · Parecer CNE/CP 50/2023</p>
+      <h1>Geração assistida de <em>Planos Educacionais Individualizados</em>.</h1>
+      <p class="lede">Preencha o plano de ensino e o estudo de caso. O sistema sugere um PEI estruturado conforme o guia oficial, que você revisa, edita e exporta em PDF ou DOCX.</p>
+      <div class="hero-meta">
+        <span><strong>2</strong> entradas</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span><strong>1</strong> saída pedagógica</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span>Você sempre revisa</span>
+      </div>
+    </section>
+
+    <!-- Stepper -->
+    <nav class="stepper" aria-label="Etapas">
+      <ol>
+        <li class="step-tab active" data-step="1">
+          <span class="step-num">01</span>
+          <span class="step-label">Plano de ensino</span>
+        </li>
+        <li class="step-tab" data-step="2">
+          <span class="step-num">02</span>
+          <span class="step-label">Estudo de caso</span>
+        </li>
+        <li class="step-tab" data-step="3">
+          <span class="step-num">03</span>
+          <span class="step-label">PEI gerado</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ETAPA 1: PLANO DE ENSINO -->
+    <section class="step-panel active" id="step-1" aria-labelledby="step-1-title">
+      <div class="panel-head">
+        <h2 id="step-1-title">Plano de ensino</h2>
+        <p>O que a professora regente já planejou para a turma. O sistema usa essas informações como ponto de partida para sugerir adaptações pedagógicas.</p>
+      </div>
+
+      <form id="form-plano" class="form-grid" novalidate>
+        <fieldset class="fs">
+          <legend>Identificação da unidade curricular</legend>
+
+          <div class="field">
+            <label for="pe-disciplina">Disciplina <span class="req">*</span></label>
+            <input type="text" id="pe-disciplina" name="disciplina" placeholder="Ex: Língua Portuguesa" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="pe-ano">Ano / série <span class="req">*</span></label>
+              <input type="text" id="pe-ano" name="ano" placeholder="Ex: 5º ano" required>
+            </div>
+            <div class="field">
+              <label for="pe-turma">Turma</label>
+              <input type="text" id="pe-turma" name="turma" placeholder="Ex: 5A">
+            </div>
+            <div class="field">
+              <label for="pe-aulas">Quantidade de aulas <span class="req">*</span></label>
+              <input type="text" id="pe-aulas" name="quantidade_aulas" placeholder="Ex: bloco de 3 aulas" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="pe-docente">Docente regente</label>
+            <input type="text" id="pe-docente" name="docente" placeholder="Nome do professor(a) da unidade curricular">
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Conteúdo e objetivos</legend>
+
+          <div class="field">
+            <label for="pe-conteudo">Conteúdo previsto <span class="req">*</span></label>
+            <textarea id="pe-conteudo" name="conteudo" rows="3" placeholder="Ex: gêneros textuais — parlendas, trava-línguas e quadrinhas. Estrutura rítmica, rimas, leitura fluente." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="pe-objetivos">Objetivos de aprendizagem <span class="req">*</span></label>
+            <textarea id="pe-objetivos" name="objetivos" rows="3" placeholder="Ex: desenvolver fluência leitora, produzir pequenos textos do gênero, reconhecer padrões sonoros..." required></textarea>
+            <p class="hint">Cite o código BNCC quando possível (ex: EF05LP09).</p>
+          </div>
+
+          <div class="field">
+            <label for="pe-metodologia">Metodologia prevista</label>
+            <textarea id="pe-metodologia" name="metodologia" rows="3" placeholder="Ex: leitura coletiva, atividades em duplas, produção textual escrita..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="pe-avaliacao">Avaliação prevista</label>
+            <textarea id="pe-avaliacao" name="avaliacao" rows="2" placeholder="Ex: observação contínua, produção textual, leitura oral..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="pe-recursos">Recursos didáticos disponíveis</label>
+            <textarea id="pe-recursos" name="recursos" rows="2" placeholder="Ex: livro didático, lousa, materiais impressos, sala de recursos multifuncional..."></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" onclick="loadExample()">Carregar exemplo</button>
+          <button type="button" class="btn btn-primary" onclick="goToStep(2)">Próximo: estudo de caso →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ETAPA 2: ESTUDO DE CASO -->
+    <section class="step-panel" id="step-2" aria-labelledby="step-2-title" hidden>
+      <div class="panel-head">
+        <h2 id="step-2-title">Estudo de caso</h2>
+        <p>Informações sobre o estudante. Quanto mais específico o perfil, mais individualizado será o PEI sugerido.</p>
+      </div>
+
+      <form id="form-caso" class="form-grid" novalidate>
+        <fieldset class="fs">
+          <legend>Identificação do estudante</legend>
+
+          <div class="field">
+            <label for="ec-nome">Nome do estudante <span class="req">*</span></label>
+            <input type="text" id="ec-nome" name="nome" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-nascimento">Data de nascimento</label>
+              <input type="date" id="ec-nascimento" name="data_nascimento">
+            </div>
+            <div class="field">
+              <label for="ec-sexo">Sexo</label>
+              <select id="ec-sexo" name="sexo">
+                <option value="">Selecione</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="outro">Outro / não informar</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ec-escola">Escola</label>
+              <input type="text" id="ec-escola" name="escola" placeholder="Nome da unidade escolar">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Diagnóstico e desenvolvimento</legend>
+
+          <div class="field">
+            <label for="ec-tipo-deficiencia">Tipo de deficiência, transtorno ou condição <span class="req">*</span></label>
+            <select id="ec-tipo-deficiencia" name="tipo_deficiencia" required>
+              <option value="">Selecione</option>
+              <option value="TEA">Transtorno do Espectro Autista (TEA)</option>
+              <option value="Deficiência Intelectual">Deficiência Intelectual</option>
+              <option value="Síndrome de Down">Síndrome de Down</option>
+              <option value="Deficiência Auditiva">Deficiência Auditiva / Surdez</option>
+              <option value="Deficiência Visual">Deficiência Visual / Cegueira / Baixa Visão</option>
+              <option value="Deficiência Física">Deficiência Física</option>
+              <option value="Deficiência Múltipla">Deficiência Múltipla</option>
+              <option value="TDAH">TDAH</option>
+              <option value="Transtorno Específico de Aprendizagem">Transtorno Específico de Aprendizagem (dislexia, discalculia, disgrafia)</option>
+              <option value="Altas Habilidades/Superdotação">Altas Habilidades / Superdotação</option>
+              <option value="Outros TGD">Outros Transtornos Globais do Desenvolvimento</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ec-diagnostico-detalhe">Descrição complementar do diagnóstico</label>
+            <textarea id="ec-diagnostico-detalhe" name="diagnostico_detalhe" rows="2" placeholder="Ex: TEA nível 1 de suporte, com laudo emitido em 03/2024..."></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-motor">Desenvolvimento motor</label>
+              <textarea id="ec-motor" name="desenvolvimento_motor" rows="2" placeholder="Marcos motores, particularidades..."></textarea>
+            </div>
+            <div class="field">
+              <label for="ec-linguagem">Desenvolvimento da linguagem</label>
+              <textarea id="ec-linguagem" name="desenvolvimento_linguagem" rows="2" placeholder="Oralidade, vocabulário, comunicação..."></textarea>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-social">Desenvolvimento social</label>
+              <textarea id="ec-social" name="desenvolvimento_social" rows="2" placeholder="Interação com pares, regulação emocional..."></textarea>
+            </div>
+            <div class="field">
+              <label for="ec-sintomas">Quadro de sintomas / particularidades</label>
+              <textarea id="ec-sintomas" name="sintomas" rows="2" placeholder="O que se observa em sala..."></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="ec-equipe">Equipe multidisciplinar de apoio</label>
+            <input type="text" id="ec-equipe" name="equipe_multidisciplinar" placeholder="Ex: fonoaudióloga, terapeuta ocupacional, psicopedagoga...">
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Perfil pedagógico</legend>
+
+          <div class="field">
+            <label for="ec-nivel-escrita">Nível de escrita</label>
+            <select id="ec-nivel-escrita" name="nivel_escrita">
+              <option value="">Selecione</option>
+              <option value="Pré-silábico I">Pré-silábico I</option>
+              <option value="Pré-silábico II">Pré-silábico II</option>
+              <option value="Silábico sem valor sonoro">Silábico sem valor sonoro</option>
+              <option value="Silábico com valor sonoro">Silábico com valor sonoro</option>
+              <option value="Silábico alfabético">Silábico alfabético</option>
+              <option value="Alfabético">Alfabético</option>
+              <option value="Alfabético ortográfico">Alfabético ortográfico</option>
+              <option value="Não se aplica">Não se aplica</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ec-ano-compativel">Ano de escolaridade compatível com desenvolvimento cognitivo</label>
+            <input type="text" id="ec-ano-compativel" name="ano_compativel" placeholder="Ex: compatível com 3º ano">
+          </div>
+
+          <div class="field">
+            <label for="ec-habilidades">Habilidades, afinidades e interesses <span class="req">*</span></label>
+            <textarea id="ec-habilidades" name="habilidades_interesses" rows="3" placeholder="O que o estudante já domina, do que gosta, o que motiva a participação..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="ec-dificuldades">Principais dificuldades <span class="req">*</span></label>
+            <textarea id="ec-dificuldades" name="dificuldades" rows="3" placeholder="Onde encontra mais barreiras, o que se manifesta como obstáculo..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="ec-sondagem">Sondagem pedagógica inicial</label>
+            <textarea id="ec-sondagem" name="sondagem_inicial" rows="2" placeholder="Síntese do que foi observado/avaliado no início do bimestre..."></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" onclick="goToStep(1)">← Voltar</button>
+          <button type="button" class="btn btn-primary" onclick="generatePEI()">Gerar PEI ✨</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ETAPA 3: PEI GERADO -->
+    <section class="step-panel" id="step-3" aria-labelledby="step-3-title" hidden>
+      <div class="panel-head">
+        <h2 id="step-3-title">PEI sugerido pelo sistema</h2>
+        <p>Revise e edite os campos abaixo. O sistema sugere, você decide. Quando estiver satisfeito, exporte o documento.</p>
+      </div>
+
+      <!-- Loading state -->
+      <div id="generation-loading" class="loading-card" hidden>
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="loading-text">Elaborando proposta de PEI...</p>
+        <p class="loading-sub">Cruzando o plano de ensino com o perfil do estudante e o Parecer CNE/CP 50/2023.</p>
+      </div>
+
+      <!-- Error state -->
+      <div id="generation-error" class="error-card" hidden>
+        <strong>Não foi possível gerar o PEI.</strong>
+        <p id="error-message"></p>
+        <button type="button" class="btn btn-ghost" onclick="generatePEI()">Tentar novamente</button>
+      </div>
+
+      <!-- Result -->
+      <article id="pei-result" class="pei-doc" hidden>
+        <header class="pei-header">
+          <div class="pei-brand">
+            <p class="pei-doctype">Plano Educacional Individualizado · PEI</p>
+            <p class="pei-legal">Em conformidade com o Parecer CNE/CP nº 50/2023</p>
+          </div>
+        </header>
+
+        <section class="pei-section">
+          <h3>Identificação</h3>
+          <div class="pei-grid">
+            <div class="pei-cell">
+              <label>Discente</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.discente"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Escola</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.escola"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Disciplina</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.disciplina"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Quantidade de aulas</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.quantidade_aulas"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Data de início</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.data_inicio"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Concluído em</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.data_conclusao"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Tipo de deficiência</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.tipo_deficiencia"></div>
+            </div>
+            <div class="pei-cell">
+              <label>Docente</label>
+              <div class="pei-input" contenteditable="true" data-field="identificacao.docente"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pei-section">
+          <h3>Adaptações curriculares</h3>
+
+          <div class="pei-block">
+            <label>Acessibilidade de conteúdo</label>
+            <div class="pei-input pei-input-large" contenteditable="true" data-field="adaptacoes_curriculares.acessibilidade_conteudo"></div>
+          </div>
+
+          <div class="pei-block">
+            <label>Objetivos específicos</label>
+            <div class="pei-input pei-input-large" contenteditable="true" data-field="adaptacoes_curriculares.objetivos_especificos"></div>
+          </div>
+
+          <div class="pei-block">
+            <label>Metodologia</label>
+            <div class="pei-input pei-input-large" contenteditable="true" data-field="adaptacoes_curriculares.metodologia"></div>
+          </div>
+
+          <div class="pei-block">
+            <label>Parecer avaliativo</label>
+            <div class="pei-sub-block">
+              <span class="pei-sub-label">Antes das atividades</span>
+              <div class="pei-input pei-input-large" contenteditable="true" data-field="adaptacoes_curriculares.parecer_avaliativo.antes"></div>
+            </div>
+            <div class="pei-sub-block">
+              <span class="pei-sub-label">Depois das atividades</span>
+              <div class="pei-input pei-input-large pei-input-empty" contenteditable="true" data-field="adaptacoes_curriculares.parecer_avaliativo.depois" data-placeholder="A ser preenchido após a execução do bloco de aulas."></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pei-section" id="pei-extras">
+          <details>
+            <summary>Observações pedagógicas adicionais</summary>
+            <div class="pei-input pei-input-large" contenteditable="true" data-field="observacoes_pedagogicas"></div>
+          </details>
+          <details>
+            <summary>Fundamentação</summary>
+            <ul id="pei-fundamentacao" class="pei-list"></ul>
+          </details>
+        </section>
+
+        <footer class="pei-footer">
+          <p class="pei-disclaimer">Este documento foi gerado com apoio de inteligência artificial e deve ser revisado pela equipe pedagógica antes de uso oficial. O sistema é uma ferramenta de apoio e não substitui a avaliação multidisciplinar nem a expertise docente.</p>
+          <div class="pei-signatures">
+            <div><span class="line"></span>Coordenador(a) Pedagógico(a)</div>
+            <div><span class="line"></span>Professor(a) da Unidade Curricular</div>
+          </div>
+        </footer>
+      </article>
+
+      <div class="form-actions" id="result-actions" hidden>
+        <button type="button" class="btn btn-ghost" onclick="goToStep(2)">← Voltar e editar entradas</button>
+        <button type="button" class="btn btn-ghost" onclick="regeneratePEI()">↻ Gerar nova versão</button>
+        <button type="button" class="btn btn-secondary" onclick="exportPDF()">Exportar PDF</button>
+        <button type="button" class="btn btn-primary" onclick="exportDOCX()">Exportar DOCX</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="sobre">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">Sobre o sistema</p>
+          <h2>Por que esse PEI surgiu?</h2>
+          <p>O Parecer CNE/CP nº 50/2023 (homologado em 11/2024) propõe o Plano Educacional Individualizado como documento pedagógico que orienta o trabalho do professor regente na sala de aula comum, com apoio da professora do AEE para a construção de materiais e estratégias acessíveis.</p>
+          <p>Este sistema usa um modelo de linguagem para sugerir um primeiro rascunho do PEI, que a equipe pedagógica edita e valida. O objetivo é reduzir a carga de elaboração documental e devolver tempo para a mediação em sala.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Como usar</p>
+          <h2 id="ajuda">Três passos.</h2>
+          <ol class="steps-list">
+            <li><strong>Plano de ensino.</strong> Preencha o que você planejou para a turma: disciplina, conteúdo, objetivos, metodologia.</li>
+            <li><strong>Estudo de caso.</strong> Descreva o estudante: diagnóstico, desenvolvimento, perfil pedagógico, dificuldades e interesses.</li>
+            <li><strong>Revise o PEI gerado.</strong> Edite qualquer campo, exporte em PDF ou DOCX para anexar ao prontuário.</li>
+          </ol>
+          <p class="callout"><strong>Importante.</strong> O PEI gerado é uma sugestão. A decisão pedagógica final é sempre do docente e da equipe AEE.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Sistema PEI · Projeto de pesquisa em educação inclusiva apoiada por IA.</p>
+      <p class="muted">Em conformidade com o Parecer CNE/CP nº 50/2023. Código aberto.</p>
+    </div>
+  </footer>
+
+  <!-- Libs para exportação -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
