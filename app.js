@@ -3,7 +3,7 @@
    ========================================================== */
 
 // CONFIGURAÇÃO. Trocar pela URL do seu Cloudflare Worker em produção.
-const WORKER_URL = "https://pei-worker.SEU-USUARIO.workers.dev/generate";
+const WORKER_URL = "https://sistema-pei-worker.rmayormartins.workers.dev";
 
 // Estado global
 let currentStep = 1;
