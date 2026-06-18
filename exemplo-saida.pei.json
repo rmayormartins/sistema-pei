@@ -1,0 +1,46 @@
+{
+  "_comment": "Exemplo do JSON retornado pelo Worker. A IA preenche apenas o bloco 'pei'. O bloco 'paee' retorna sempre com null (responsabilidade do professor do AEE, Art. 10 Portaria 421/2026).",
+  "identificacao": {
+    "discente": "Estudante exemplo",
+    "escola": "EMEF Exemplo",
+    "disciplina": "Língua Portuguesa",
+    "quantidade_aulas": "bloco de 3 aulas",
+    "data_inicio": null,
+    "data_conclusao": null,
+    "tipo_deficiencia": "Transtorno do Espectro Autista (TEA)",
+    "prof_aee": "Profa. AEE exemplo",
+    "prof_regente": "Profa. exemplo",
+    "ano_turma": "5º ano A"
+  },
+  "paee": {
+    "_nota": "Seção de responsabilidade do professor do AEE (Art. 10, Portaria 421/2026). Não preenchida pela IA.",
+    "barreiras_identificadas": null,
+    "materiais_recursos": null,
+    "espacos_aee": null,
+    "tecnologia_assistiva": null,
+    "comunicacao_aumentativa": null,
+    "profissional_apoio": null,
+    "demandas_formacao": null,
+    "rede_protecao": null
+  },
+  "pei": {
+    "acessibilidade_conteudo": "Acessibilização do conteúdo de gêneros textuais (parlendas, trava-línguas e quadrinhas). O estudante atua como copista de frases e apresenta dificuldades na leitura fluente e na escrita espontânea. A meta de acessibilização é desenvolver a fluência leitora e a construção autônoma de pequenas frases, usando a estrutura rítmica e repetitiva dos gêneros como suporte.",
+    "objetivos_especificos": "Desenvolver a fluência leitora e a escrita autônoma por meio de parlendas, trava-línguas e quadrinhas, com reconhecimento de padrões rítmicos e sonoros (BNCC EF05LP09).",
+    "metodologia_recursos": "Cartões com versos incompletos para o estudante completar, favorecendo reconhecimento visual e auditivo dos padrões. Suporte multimodal (verso impresso em fonte ampliada com áudio) e versos recortados para reconstrução textual. Atividades em blocos curtos de 10 a 15 minutos com pausas previsíveis, respeitando a sensibilidade auditiva. Hiperfoco em temas de interesse usado como ponte motivacional.",
+    "medidas_acessibilidade_avaliativa": "Avaliação processual por observação, com registro da participação e da reconstrução dos versos. Permitir resposta oral quando a escrita for barreira. Considerar a produção apoiada por cartões como evidência de aprendizagem, não apenas a escrita espontânea.",
+    "indicadores_progresso": "Completa versos com palavras adequadas ao padrão rítmico; reconhece rimas em pares de palavras; organiza ao menos 3 versos recortados na sequência correta; amplia gradualmente o tempo de tarefa.",
+    "estrategia_acompanhamento": "Registro ao final de cada uma das três aulas, com anotação do que o estudante completou de forma autônoma e do que exigiu apoio. Comparação entre a primeira e a última aula do bloco.",
+    "parecer_avaliativo": {
+      "antes": "O estudante limitava-se à cópia de frases, sem demonstrar compreensão. Tinha dificuldade em identificar rimas e repetições apenas pela escuta. Reconhece padrões visuais com mais facilidade do que auditivos.",
+      "depois": null
+    },
+    "devolutiva_familia": "Devolutiva presencial ou por agenda escolar, informando os avanços na leitura de versos e o uso dos cartões em casa como continuidade lúdica, com exemplos concretos do que o estudante já realiza."
+  },
+  "fundamentacao": [
+    "Portaria MEC nº 421/2026 (Art. 11)",
+    "Parecer CNE/CP nº 50/2023",
+    "BNCC: EF05LP09",
+    "Declaração de Salamanca (UNESCO, 1994)"
+  ],
+  "observacoes_pedagogicas": "Recomenda-se ambiente com baixo estímulo sonoro durante a leitura coletiva, considerando a hipersensibilidade auditiva do estudante."
+}
