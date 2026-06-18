@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de geração assistida do PEI (Plano Educacional Individualizado) conforme a Portaria MEC 421/2026.">
+  <title>Sistema PAEE + PEI · Plano Educacional Individualizado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Início">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="14" r="4" fill="currentColor"/>
+          <circle cx="11" cy="26" r="3" fill="currentColor"/>
+          <circle cx="29" cy="26" r="3" fill="currentColor"/>
+          <line x1="20" y1="14" x2="11" y2="26" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="20" y1="14" x2="29" y2="26" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="11" y1="26" x2="29" y2="26" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Sistema PAEE + PEI</span>
+          <span class="brand-sub">Plano Educacional Individualizado</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#ajuda">Ajuda</a>
+        <a href="https://github.com/rmayormartins/sistema-pei" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="hero">
+      <p class="eyebrow">Educação inclusiva · Portaria MEC 421/2026</p>
+      <h1>Geração assistida do <em>Plano Educacional Individualizado</em>.</h1>
+      <p class="lede">Preencha o plano de ensino e o estudo de caso. O sistema sugere o PEI (acessibilização curricular, de responsabilidade do professor regente), que você revisa, edita e exporta. O PAEE fica reservado ao professor do AEE.</p>
+      <div class="hero-meta">
+        <span><strong>2</strong> entradas</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span>PEI sugerido pela IA</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span>Você sempre revisa</span>
+      </div>
+    </section>
+
+    <nav class="stepper" aria-label="Etapas">
+      <ol>
+        <li class="step-tab active" data-step="1"><span class="step-num">01</span><span class="step-label">Plano de ensino</span></li>
+        <li class="step-tab" data-step="2"><span class="step-num">02</span><span class="step-label">Estudo de caso</span></li>
+        <li class="step-tab" data-step="3"><span class="step-num">03</span><span class="step-label">PAEE + PEI</span></li>
+      </ol>
+    </nav>
+
+    <!-- ETAPA 1: PLANO DE ENSINO -->
+    <section class="step-panel active" id="step-1" aria-labelledby="step-1-title">
+      <div class="panel-head">
+        <h2 id="step-1-title">Plano de ensino</h2>
+        <p>O que o professor regente planejou para a turma. Ponto de partida para a acessibilização curricular do PEI.</p>
+      </div>
+
+      <form id="form-plano" class="form-grid" novalidate>
+        <fieldset class="fs">
+          <legend>Identificação da unidade curricular</legend>
+          <div class="field">
+            <label for="pe-disciplina">Disciplina <span class="req">*</span></label>
+            <input type="text" id="pe-disciplina" name="disciplina" placeholder="Ex: Língua Portuguesa" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="pe-ano">Ano / série <span class="req">*</span></label>
+              <input type="text" id="pe-ano" name="ano" placeholder="Ex: 5º ano" required>
+            </div>
+            <div class="field">
+              <label for="pe-turma">Turma</label>
+              <input type="text" id="pe-turma" name="turma" placeholder="Ex: 5A">
+            </div>
+            <div class="field">
+              <label for="pe-aulas">Quantidade de aulas <span class="req">*</span></label>
+              <input type="text" id="pe-aulas" name="quantidade_aulas" placeholder="Ex: bloco de 3 aulas" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="pe-docente">Docente regente</label>
+              <input type="text" id="pe-docente" name="docente" placeholder="Professor(a) da unidade curricular">
+            </div>
+            <div class="field">
+              <label for="pe-aee">Professor(a) do AEE</label>
+              <input type="text" id="pe-aee" name="prof_aee" placeholder="Professor(a) do AEE que acompanha">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Conteúdo e objetivos</legend>
+          <div class="field">
+            <label for="pe-conteudo">Conteúdo previsto <span class="req">*</span></label>
+            <textarea id="pe-conteudo" name="conteudo" rows="3" placeholder="Ex: gêneros textuais – parlendas, trava-línguas e quadrinhas." required></textarea>
+          </div>
+          <div class="field">
+            <label for="pe-objetivos">Objetivos de aprendizagem <span class="req">*</span></label>
+            <textarea id="pe-objetivos" name="objetivos" rows="3" placeholder="Ex: desenvolver fluência leitora, reconhecer padrões sonoros..." required></textarea>
+            <p class="hint">Cite o código BNCC quando possível (ex: EF05LP09).</p>
+          </div>
+          <div class="field">
+            <label for="pe-metodologia">Metodologia prevista</label>
+            <textarea id="pe-metodologia" name="metodologia" rows="2" placeholder="Ex: leitura coletiva, atividades em duplas..."></textarea>
+          </div>
+          <div class="field">
+            <label for="pe-avaliacao">Avaliação prevista</label>
+            <textarea id="pe-avaliacao" name="avaliacao" rows="2" placeholder="Ex: observação contínua, produção textual..."></textarea>
+          </div>
+          <div class="field">
+            <label for="pe-recursos">Recursos didáticos disponíveis</label>
+            <textarea id="pe-recursos" name="recursos" rows="2" placeholder="Ex: livro didático, lousa, sala de recursos multifuncional..."></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" onclick="loadExample()">Carregar exemplo</button>
+          <button type="button" class="btn btn-primary" onclick="goToStep(2)">Próximo: estudo de caso →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ETAPA 2: ESTUDO DE CASO -->
+    <section class="step-panel" id="step-2" aria-labelledby="step-2-title" hidden>
+      <div class="panel-head">
+        <h2 id="step-2-title">Estudo de caso</h2>
+        <p>Base para a geração do PEI (Art. 10, Portaria MEC 421/2026). Quanto mais específico o perfil, mais individualizado o PEI sugerido.</p>
+        <p class="callout-inline">A matrícula e o AEE não podem ser condicionados a diagnóstico ou laudo (Art. 7, Portaria 421/2026). O campo de diagnóstico é opcional.</p>
+      </div>
+
+      <form id="form-caso" class="form-grid" novalidate>
+        <fieldset class="fs">
+          <legend>A · Perfil do estudante</legend>
+          <div class="field">
+            <label for="ec-nome">Nome do estudante <span class="req">*</span></label>
+            <input type="text" id="ec-nome" name="nome" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-nascimento">Data de nascimento</label>
+              <input type="date" id="ec-nascimento" name="data_nascimento">
+            </div>
+            <div class="field">
+              <label for="ec-ano-turma">Ano / Turma</label>
+              <input type="text" id="ec-ano-turma" name="ano_turma" placeholder="Ex: 5º ano A">
+            </div>
+            <div class="field">
+              <label for="ec-escola">Escola</label>
+              <input type="text" id="ec-escola" name="escola">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-tipo-deficiencia">Diagnóstico / condição (se houver)</label>
+              <select id="ec-tipo-deficiencia" name="tipo_deficiencia">
+                <option value="">Selecione (opcional)</option>
+                <option value="TEA">Transtorno do Espectro Autista (TEA)</option>
+                <option value="Deficiência Intelectual">Deficiência Intelectual</option>
+                <option value="Síndrome de Down">Síndrome de Down</option>
+                <option value="Deficiência Auditiva">Deficiência Auditiva / Surdez</option>
+                <option value="Deficiência Visual">Deficiência Visual / Cegueira / Baixa Visão</option>
+                <option value="Deficiência Física">Deficiência Física</option>
+                <option value="Deficiência Múltipla">Deficiência Múltipla</option>
+                <option value="TDAH">TDAH</option>
+                <option value="Transtorno Específico de Aprendizagem">Transtorno Específico de Aprendizagem</option>
+                <option value="Altas Habilidades/Superdotação">Altas Habilidades / Superdotação</option>
+                <option value="Outros TGD">Outros Transtornos Globais do Desenvolvimento</option>
+                <option value="Não diagnosticado">Sem diagnóstico (apoio por necessidade observada)</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ec-cid">CID / DSM (opcional)</label>
+              <input type="text" id="ec-cid" name="cid_dsm" placeholder="Ex: F84.0">
+            </div>
+          </div>
+          <div class="field">
+            <label for="ec-prof-regente">Professor(a) regente</label>
+            <input type="text" id="ec-prof-regente" name="prof_regente" placeholder="Nome do regente">
+          </div>
+          <div class="subhead">Desenvolvimento geral</div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-linguagem">Linguagem e comunicação</label>
+              <textarea id="ec-linguagem" name="desenvolvimento_linguagem" rows="2"></textarea>
+            </div>
+            <div class="field">
+              <label for="ec-motor">Desenvolvimento motor</label>
+              <textarea id="ec-motor" name="desenvolvimento_motor" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-cognitivo">Desenvolvimento cognitivo</label>
+              <textarea id="ec-cognitivo" name="desenvolvimento_cognitivo" rows="2"></textarea>
+            </div>
+            <div class="field">
+              <label for="ec-social">Interação social e comportamento</label>
+              <textarea id="ec-social" name="desenvolvimento_social" rows="2"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>B · Perfil pedagógico</legend>
+          <p class="fs-hint">O que o estudante já faz, o que ainda não faz, como aprende melhor.</p>
+          <div class="field">
+            <label for="ec-habilidades">Habilidades e pontos de partida (o que já sabe fazer) <span class="req">*</span></label>
+            <textarea id="ec-habilidades" name="habilidades_interesses" rows="3" required></textarea>
+          </div>
+          <div class="field">
+            <label for="ec-dificuldades">Dificuldades identificadas em sala <span class="req">*</span></label>
+            <textarea id="ec-dificuldades" name="dificuldades" rows="3" required></textarea>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-interesses">Interesses e motivadores</label>
+              <textarea id="ec-interesses" name="interesses_motivadores" rows="2"></textarea>
+            </div>
+            <div class="field">
+              <label for="ec-estilo">Estilo de aprendizagem</label>
+              <input type="text" id="ec-estilo" name="estilo_aprendizagem" placeholder="visual, auditivo, cinestésico...">
+            </div>
+          </div>
+          <div class="field">
+            <label for="ec-comunicacao">Formas de comunicação utilizadas</label>
+            <input type="text" id="ec-comunicacao" name="formas_comunicacao" placeholder="Ex: oral, Libras, CAA, gestos...">
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>D · Contexto curricular (alimenta o PEI)</legend>
+          <p class="fs-hint">Art. 11, Portaria 421/2026. Esta seção orienta diretamente a sugestão do PEI.</p>
+          <div class="field">
+            <label for="ec-barreiras">Barreiras de acesso ao currículo comum</label>
+            <textarea id="ec-barreiras" name="barreiras_curriculo" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label for="ec-disciplinas-adapt">Disciplinas que mais precisam de adaptação</label>
+            <input type="text" id="ec-disciplinas-adapt" name="disciplinas_adaptacao">
+          </div>
+          <div class="field">
+            <label for="ec-estrategias-func">Estratégias que já funcionaram (histórico do estudante)</label>
+            <textarea id="ec-estrategias-func" name="estrategias_funcionaram" rows="2"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs fs-muted">
+          <legend>C · Necessidades de suporte – alimenta o PAEE</legend>
+          <p class="fs-hint">Estes campos pertencem ao PAEE (professor do AEE). São opcionais aqui e <strong>não</strong> são usados pela IA, que gera apenas o PEI. Preencha se quiser registrar para a equipe.</p>
+          <div class="field">
+            <label for="ec-suporte-obs">Observações de suporte (opcional)</label>
+            <textarea id="ec-suporte-obs" name="suporte_observacoes" rows="2" placeholder="Tecnologia assistiva, CAA, profissional de apoio... (registro para o AEE)"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>E · Contexto familiar</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="ec-responsavel">Responsável e contato</label>
+              <input type="text" id="ec-responsavel" name="responsavel_contato">
+            </div>
+            <div class="field">
+              <label for="ec-forma-com-familia">Melhor forma de comunicação com a família</label>
+              <input type="text" id="ec-forma-com-familia" name="forma_comunicacao_familia" placeholder="Ex: agenda escolar, WhatsApp, presencial">
+            </div>
+          </div>
+          <div class="field">
+            <label for="ec-info-familia">Informações relevantes trazidas pela família</label>
+            <textarea id="ec-info-familia" name="info_familia" rows="2"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" onclick="goToStep(1)">← Voltar</button>
+          <button type="button" class="btn btn-primary" onclick="generatePEI()">Gerar PEI ✨</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ETAPA 3: DOCUMENTO PAEE + PEI -->
+    <section class="step-panel" id="step-3" aria-labelledby="step-3-title" hidden>
+      <div class="panel-head">
+        <h2 id="step-3-title">Documento PAEE + PEI</h2>
+        <p>A IA preencheu o PEI (acessibilização curricular). Revise e edite os campos. O PAEE fica reservado ao professor do AEE. Quando satisfeito, exporte.</p>
+      </div>
+
+      <div id="generation-loading" class="loading-card" hidden>
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="loading-text">Elaborando proposta de PEI...</p>
+        <p class="loading-sub">Cruzando o plano de ensino com o perfil do estudante e a Portaria MEC 421/2026.</p>
+      </div>
+
+      <div id="generation-error" class="error-card" hidden>
+        <strong>Não foi possível gerar o PEI.</strong>
+        <p id="error-message"></p>
+        <button type="button" class="btn btn-ghost" onclick="generatePEI()">Tentar novamente</button>
+      </div>
+
+      <article id="pei-result" class="pei-doc" hidden>
+        <header class="pei-header">
+          <div class="pei-brand">
+            <p class="pei-doctype">Instrumento Pedagógico Integrado · PAEE + PEI</p>
+            <p class="pei-legal">Portaria MEC nº 421/2026 · Art. 7 §2 · Parecer CNE/CP 50/2023</p>
+          </div>
+        </header>
+
+        <section class="pei-section">
+          <h3>Identificação</h3>
+          <div class="pei-grid">
+            <div class="pei-cell"><label>Discente</label><div class="pei-input" contenteditable="true" data-field="identificacao.discente"></div></div>
+            <div class="pei-cell"><label>Escola</label><div class="pei-input" contenteditable="true" data-field="identificacao.escola"></div></div>
+            <div class="pei-cell"><label>Disciplina</label><div class="pei-input" contenteditable="true" data-field="identificacao.disciplina"></div></div>
+            <div class="pei-cell"><label>Ano / Turma</label><div class="pei-input" contenteditable="true" data-field="identificacao.ano_turma"></div></div>
+            <div class="pei-cell"><label>Quantidade de aulas</label><div class="pei-input" contenteditable="true" data-field="identificacao.quantidade_aulas"></div></div>
+            <div class="pei-cell"><label>Tipo de deficiência / condição</label><div class="pei-input" contenteditable="true" data-field="identificacao.tipo_deficiencia"></div></div>
+            <div class="pei-cell"><label>Prof. Regente</label><div class="pei-input" contenteditable="true" data-field="identificacao.prof_regente"></div></div>
+            <div class="pei-cell"><label>Prof. do AEE</label><div class="pei-input" contenteditable="true" data-field="identificacao.prof_aee"></div></div>
+            <div class="pei-cell"><label>Data de início</label><div class="pei-input" contenteditable="true" data-field="identificacao.data_inicio"></div></div>
+            <div class="pei-cell"><label>Revisão prevista</label><div class="pei-input" contenteditable="true" data-field="identificacao.data_conclusao"></div></div>
+          </div>
+        </section>
+
+        <!-- PAEE em branco -->
+        <section class="pei-section pei-section-paee">
+          <h3>PAEE · Plano de Atendimento Educacional Especializado</h3>
+          <p class="pei-section-note">Preenchido pelo professor do AEE (Art. 10, Portaria 421/2026). A IA não preenche esta seção.</p>
+          <div class="pei-block"><label>1 · Barreiras identificadas no contexto educacional</label><div class="pei-input pei-input-large pei-input-blank" contenteditable="true" data-field="paee.barreiras_identificadas" data-placeholder="A preencher pelo professor do AEE."></div></div>
+          <div class="pei-block"><label>1 · Materiais e recursos para eliminar barreiras</label><div class="pei-input pei-input-large pei-input-blank" contenteditable="true" data-field="paee.materiais_recursos" data-placeholder="A preencher pelo professor do AEE."></div></div>
+          <div class="pei-block"><label>2 · Tecnologia assistiva e comunicação aumentativa (CAA)</label><div class="pei-input pei-input-large pei-input-blank" contenteditable="true" data-field="paee.tecnologia_assistiva" data-placeholder="A preencher pelo professor do AEE."></div></div>
+          <div class="pei-block"><label>3 · Profissional de apoio escolar</label><div class="pei-input pei-input-large pei-input-blank" contenteditable="true" data-field="paee.profissional_apoio" data-placeholder="A preencher pelo professor do AEE."></div></div>
+          <div class="pei-block"><label>4 · Demandas de formação e rede de proteção</label><div class="pei-input pei-input-large pei-input-blank" contenteditable="true" data-field="paee.rede_protecao" data-placeholder="A preencher pelo professor do AEE."></div></div>
+        </section>
+
+        <!-- PEI preenchido pela IA -->
+        <section class="pei-section pei-section-pei">
+          <h3>PEI · Plano Educacional Individualizado</h3>
+          <p class="pei-section-note pei-section-note-ai">Sugerido pela IA · Art. 11, Portaria 421/2026 · revise antes de oficializar.</p>
+          <div class="pei-block"><label>Acessibilidade de conteúdo</label><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.acessibilidade_conteudo"></div></div>
+          <div class="pei-block"><label>Objetivos específicos</label><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.objetivos_especificos"></div></div>
+          <div class="pei-block"><label>Metodologia e recursos</label><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.metodologia_recursos"></div></div>
+          <div class="pei-block"><label>Medidas de acessibilidade avaliativa</label><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.medidas_acessibilidade_avaliativa"></div></div>
+          <div class="pei-block">
+            <label>Monitoramento · Art. 11 inciso III</label>
+            <div class="pei-sub-block"><span class="pei-sub-label">Indicadores observáveis de progresso</span><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.indicadores_progresso"></div></div>
+            <div class="pei-sub-block"><span class="pei-sub-label">Estratégia de acompanhamento</span><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.estrategia_acompanhamento"></div></div>
+          </div>
+          <div class="pei-block">
+            <label>Parecer avaliativo</label>
+            <div class="pei-sub-block"><span class="pei-sub-label">Antes das atividades</span><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.parecer_avaliativo.antes"></div></div>
+            <div class="pei-sub-block"><span class="pei-sub-label">Após as atividades</span><div class="pei-input pei-input-large pei-input-blank" contenteditable="true" data-field="pei.parecer_avaliativo.depois" data-placeholder="A preencher após a execução do bloco de aulas."></div></div>
+          </div>
+          <div class="pei-block"><label>Devolutiva à família · Art. 11 inciso IV</label><div class="pei-input pei-input-large" contenteditable="true" data-field="pei.devolutiva_familia"></div></div>
+        </section>
+
+        <section class="pei-section" id="pei-extras">
+          <details>
+            <summary>Observações pedagógicas adicionais</summary>
+            <div class="pei-input pei-input-large" contenteditable="true" data-field="observacoes_pedagogicas"></div>
+          </details>
+          <details>
+            <summary>Fundamentação</summary>
+            <ul id="pei-fundamentacao" class="pei-list"></ul>
+          </details>
+        </section>
+
+        <footer class="pei-footer">
+          <p class="pei-disclaimer">A seção PEI deste documento foi gerada com apoio de inteligência artificial e deve ser revisada pelo professor regente antes de uso oficial. O PAEE é de responsabilidade do professor do AEE. O sistema é uma ferramenta de apoio e não substitui a avaliação multidisciplinar nem a expertise docente.</p>
+          <div class="pei-signatures">
+            <div><span class="line"></span>Professor(a) do AEE</div>
+            <div><span class="line"></span>Professor(a) Regente</div>
+            <div><span class="line"></span>Coordenação Pedagógica</div>
+          </div>
+        </footer>
+      </article>
+
+      <div class="form-actions" id="result-actions" hidden>
+        <button type="button" class="btn btn-ghost" onclick="goToStep(2)">← Voltar e editar entradas</button>
+        <button type="button" class="btn btn-ghost" onclick="regeneratePEI()">↻ Gerar nova versão</button>
+        <button type="button" class="btn btn-secondary" onclick="exportPDF()">Exportar PDF</button>
+        <button type="button" class="btn btn-primary" onclick="exportDOCX()">Exportar DOCX</button>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">Sobre o sistema</p>
+          <h2>PAEE e PEI, na nova norma.</h2>
+          <p>A Portaria MEC nº 421/2026 (que regulamenta o Decreto nº 12.686/2025) institui dois documentos articulados: o PAEE, de responsabilidade do professor do AEE, e o PEI, de responsabilidade do professor regente, ambos a partir do estudo de caso e com revisão anual.</p>
+          <p>Este sistema gera apenas o PEI (acessibilização curricular). O PAEE permanece reservado ao professor do AEE, porque envolve decisões – tecnologia assistiva, profissional de apoio, rede de proteção – que não cabem a uma IA.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Como usar</p>
+          <h2 id="ajuda">Três passos.</h2>
+          <ol class="steps-list">
+            <li><strong>Plano de ensino.</strong> O que você planejou para a turma.</li>
+            <li><strong>Estudo de caso.</strong> O perfil do estudante nos cinco blocos.</li>
+            <li><strong>Revise o PEI gerado.</strong> Edite, complete o PAEE com a equipe AEE, exporte.</li>
+          </ol>
+          <p class="callout"><strong>Importante.</strong> O PEI gerado é uma sugestão. A decisão pedagógica final é sempre do docente e da equipe AEE. A matrícula e o AEE não dependem de laudo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Sistema PAEE + PEI · Projeto de pesquisa em educação inclusiva apoiada por IA.</p>
+      <p class="muted">Portaria MEC nº 421/2026 · Decreto nº 12.686/2025 · Parecer CNE/CP nº 50/2023. Código aberto.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
